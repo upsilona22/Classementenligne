@@ -1,24 +1,6 @@
 [build]
-  command = "npm run build"
-  command = "npm i --s netlify-plugin-fetch-feeds"
-  publish = ".next"
-  
+   command = "npm run build"
+   publish = ".next"
 
-
-[[plugins]]
-  package = "netlify-plugin-fetch-feeds"
- 
-  [plugins.inputs]
-    # Where should data files reside
-    dataDir = "site/_data"
- 
-    # All the feeds we wish to gather for use in the build
- 
-    [[plugins.inputs.feeds]]
-      name = "hawksworx"
-      url = "https://hawksworx.com/feed.json"
-      ttl = 3600
-    [[plugins.inputs.feeds]]
-      name = "netlify"
-      url = "https://www.netlify.com/blog/index.xml"
-      ttl = 86400
+ [[plugins]]
+   package = "@netlify/plugin-nextjs"
