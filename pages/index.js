@@ -7,24 +7,23 @@ export default function Home({leaderboard, totals, time}) {
   return (
     <div className="container">
       <Head>
-        <title>Demolition Leaderboard</title>
+        <title>Classement démolitions</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Header title="Welcome to the Demolition Leaderboard!" />
+        <Header title="Bienvenue sur le classement des démolitions francophones!" />
         <p className="description">
-          Join the leaderboard on the Discord <a href="https://discord.gg/bSNhUbQ">
-            https://discord.gg/bSNhUbQ</a>
+          Rejoignez le classement en effectuant la demande sur le discord <a href="https://discord.gg/HVuU3QEC">
+            https://discord.gg/HVuU3QEC</a>
         </p>
         <p>
-          Collectively, {totals.players.toLocaleString()} members have 
-          demolished {totals.demos.toLocaleString()} unsuspecting players, 
-          leading to {totals.exterms.toLocaleString()} exterminations
+          Collectivement les {totals.players.toLocaleString()} joueurs ont démolis {totals.demos.toLocaleString()} joueurs, 
+          amenant à un total de {totals.exterms.toLocaleString()} exterminations
         </p>
         <p>
-          Victims have waited a total of {time.days} days, {time.hours} hours, {time.minutes} minutes, 
-          and {time.seconds} seconds  to respawn
+          Nombre de victimes atteint en {time.days} jours, {time.hours} heures, {time.minutes} minutes, 
+          et {time.seconds} secondes
         </p>
         
       </main>
