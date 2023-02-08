@@ -3,5 +3,4 @@
   publish = ".next"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
   package = "netlify-plugin-gatsby-cache"
