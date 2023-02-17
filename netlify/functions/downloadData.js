@@ -6,3 +6,29 @@ const dbx = new Dropbox ({ fetch:fetch,
     clientSecret: 'chbvq8t7rj2ijun',
     refreshToken: 'F-csXUU3j2IAAAAAAAAAAV-sJC8LtkSeI64riSUcwn5uQt5tmIQhUEg4RQfrNLMX'
 });
+exports.handler = async function(event, context) {
+     try {
+         const response = await dbx.filesDownload({path: "/leaderboard.json"});
+
+         if (response.status !== 200) {
+             return {
+                 statusCode: response.status,
+                 message: "Dropbox error"
+             }
+         }
+
+         const data = JSON.parse(response.result.fileBinary);
+
+         return {
+             statusCode: 200,
+             headers: { "content-type": "application/json" },
+             body: JSON.stringify(data)
+         }
+     } catch(err) {
+         console.log(err)
+         return {
+             statusCode: 502,
+             message: "Error connecting to dropbox"
+         }
+     }
+ }
