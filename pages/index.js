@@ -3,6 +3,17 @@ import Header from '@components/Header'
 import LeaderboardTable from '@components/LeaderboardTable'
 const fetch = require('isomorphic-fetch');
 
+function Index({ data, error }) {
+  return (
+    <>
+      {error && <p>{error}</p>}
+      <pre>
+        <code>{JSON.stringify(data, null, 4)}</code>
+      </pre>
+    </>
+  );
+}
+
 export default function Home({leaderboard, totals, time}) {
   return (
     <div className="container">
