@@ -7,7 +7,6 @@ const dbx = new Dropbox ({ fetch:fetch,
     refreshToken: 'F-csXUU3j2IAAAAAAAAAAV-sJC8LtkSeI64riSUcwn5uQt5tmIQhUEg4RQfrNLMX'
 });
 
-const redirectUri = `http://${hostname}:${port}/auth`;
 
 app.get('/', (req, res) => {
   dbx.auth.getAuthenticationUrl(redirectUri, null, 'code', 'offline', null, 'none', true)
