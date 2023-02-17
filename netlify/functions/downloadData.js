@@ -1,11 +1,10 @@
 const fetch = require('isomorphic-fetch');
 const Dropbox  = require('dropbox').Dropbox;
 const dbx = new Dropbox ({ fetch:fetch, 
-    accessToken: "sl.BZBrN2NF536u74pzo3_HLwoyO4rwnJNVWGU5TJ0dn75hdj_P2MK9dcqgnDfI0iqDnl4ExmJg4Xsy8NVNIf4VhxHmQEm884wpsvH03ceQ7pVleTzMCrQwkiuzj40V4bS7ntfqEG1g5oQT", 
-    clientId: ["6q53aq0206qd2de"],
-    clientSecret: 'chbvq8t7rj2ijun',
-    refreshToken: 'F-csXUU3j2IAAAAAAAAAAV-sJC8LtkSeI64riSUcwn5uQt5tmIQhUEg4RQfrNLMX'
+    accessToken: "sl.BZCJxFTO6VG7ShMLm0OGgygZm6WEtMArWzfKQrYjgi5g2BIe5AmuyaglHf1S1FTI0iZ1gDZdM5mDMSX3nieOZS-5zlXldduyljlsIAKqfzhbsk964pDCZbZP56i5_yxHLlw-cmHwchcp", 
+ 
 });
+
 exports.handler = async function(event, context) {
      try {
          const response = await dbx.filesDownload({path: "/leaderboard.json"});
