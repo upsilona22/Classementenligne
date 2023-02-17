@@ -34,49 +34,13 @@ export default function Home({leaderboard, totals, time}) {
   )
 }
 
-function Index({ data, error }) {
-  return (
-    <>
-      {error && <p>{error}</p>}
-      <pre>
-        <code>{JSON.stringify(data, null, 4)}</code>
-      </pre>
-    </>
-  );
-}
 
-export async function getStaticProps() {
-  let data = [];
-  let error = "";
-  try {
-    const res = await fetch(
-      "https://www.dropbox.com/s/lxvr2j4r51bi5xx/leaderboard.json?dl=0",
-      {
-        method: "GET",
-        headers: {
-          // update with your user-agent
-          "User-Agent":
-            "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36", 
-          Accept: "application/json; charset=UTF-8",
-        },
-      }
-    );
-
-    data = await res.json();
-  } catch (e) {
-    error = e.toString();
-  }
-
-  return {
-    props: {
-      data,
-      error,
-    },
-  };
-}
-
-export default Index;
-  
+ export async function getStaticProps(context) {
+   let leaderboard = 
+     await fetch("https://ephemeral-paprenjak-c345df.netlify.app/.netlify/functions/downloadData")
+       .then(function(response) {
+         if (response.status >= 400) {
+           console.log(response);
 
   let totalDemos = 0;
   let totalExterms = 0;
