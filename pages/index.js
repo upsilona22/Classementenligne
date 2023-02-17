@@ -34,7 +34,7 @@ export default function Home({leaderboard, totals, time}) {
 
 export async function getStaticProps(context) {
   let leaderboard = 
-    await fetch("https://ephemeral-paprenjak-c345df.netlify.app/.netlify/functions/downloadData")
+    await fetch("https://www.dropbox.com/s/lxvr2j4r51bi5xx/leaderboard.json?dl=0")
       .then(function(response) {
         if (response.status >= 400) {
           console.log(response);
